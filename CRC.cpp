@@ -2,38 +2,19 @@
 using namespace std;
 string subtract(string res,string div)
 {
-    string vir_div ="" ;
     if(res[0]=='0')
     {
-        for(int i=0;i<res.length();i++)
-        {
-            if(res[i]=='0')
-            {
-                res[i] = '0';
-            }
-            else if(res[i]=='1')
-            {
-                res[i] = '1';
-            }  
-        }
+        return res;
     }
     else
     {
         for(int i=0;i<res.length();i++)
         {
-            if(res[i]=='0'&&div[i]=='0')
-            {
-                res[i] = '0';
-            }
-            else if(res[i]=='1'&&div[i]=='1')
-            {
-                res[i] = '0';
-            }
-            else
-                res[i] = '1';
+            int p = (int)res[i]^(int)div[i];
+            res[i]='0'+p;
+            p=0;
         }
     }
-    //cout<<"res in subtract block vlock:"<<res<<endl;
     return res;
 }
 void senderside(string data, string div)
