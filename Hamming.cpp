@@ -26,29 +26,44 @@ void senderside(int *a,int l)
             Hamming(&a[0],i,l,sum);
         }
     }
-      for(int i=1;i<=l;i++)
+    for(int i=1;i<=l;i++)
         cout<<a[i]<<" ";
 }
-bool find(int n)
+bool pow_of_two(int n)
 {
     return (ceil(log2(n))==floor(log2(n)));
 }
-    
+int getparity(int n)
+{
+    int p=0;
+    for( p=1; p<n; p++)
+    {
+        if(pow(2,p)==(n+p+1)||pow(2,p)>(n+p+1))
+            {
+                break;
+            }
+    }
+    return p;
+}
 int main()
 {
     int n;
+    cout<<"enter the size of data you want to write:";
     cin>>n;
-    int a[n+1];
-    for(int i=1;i<=n;i++)
+    int p = getparity(n);
+    int a[n+p+1];
+    cout<<"insert data:"<<endl;
+    for(int i=1;i<=n+p;i++)
     {
-        if(find(i))
+        if(pow_of_two(i))
             a[i]=-1;
         else
             cin>>a[i];
     }
-    for(int i=1;i<=n;i++)
+    for(int i=1;i<=n+p;i++)
     {
         cout<<a[i]<<" ";
     }
-    senderside(&a[0],n);
+    cout<<endl;
+    senderside(&a[0],n+p);
 }
