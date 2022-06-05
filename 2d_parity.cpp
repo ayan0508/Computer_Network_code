@@ -33,24 +33,7 @@ vector<vector<int>> senderside(vector<vector<int>>& v)
             col_matrix.push_back(1);
         sum=0;
     }
-    for(int i=0; i<v.size();i++)
-    {
-        for(int j=0; j<v[i].size();j++)
-        {
-            v1.push_back(v[i][j]);
-        }
-        send_data.push_back(v1);
-        v1.clear();
-    }
-    send_data.push_back(col_matrix);
-    for(int i=0; i<send_data.size();i++)
-    {
-        for(int j=0; j<send_data[i].size();j++)
-        {
-            cout<<send_data[i][j]<<" ";
-        }
-        cout<<endl;
-    }
+    v.push_back(col_matrix);
     return send_data;
 }
 
