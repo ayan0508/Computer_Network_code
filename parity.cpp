@@ -35,7 +35,7 @@ void checkoddparity(vector<int>& v1)
     for(int i = 0; i < n; i++)
         sum +=v1[i];
     if(sum%2==0)
-        cout<<" Data pod mariecha"<<endl;
+        cout<<" Data loss"<<endl;
     else
         cout<<"thik acha"<<endl;
 }
@@ -48,7 +48,7 @@ void checkevenparity(vector<int>& v1)
     if(sum%2==0)
         cout<<"thik acha"<<endl;
     else
-        cout<<" Data pod mariecha"<<endl;
+        cout<<" Data loss"<<endl;
 }
 int main()
 {
