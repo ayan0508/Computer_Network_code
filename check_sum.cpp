@@ -1,7 +1,10 @@
+
 #include<bits/stdc++.h>
 using namespace std;
-string add(string str,string res)
+
+string add(string str,string& res)
 {
+    cout<<"in add:"<<str<<" "<<res<<endl;
     int c=0;
     int l = str.length();
     string temp="";
@@ -13,6 +16,7 @@ string add(string str,string res)
                 {
                     temp+='1';
                     c=0;
+                 
                 }
                 else if(str[i]=='0'&&res[i]=='1')
                 {
@@ -61,6 +65,7 @@ string add(string str,string res)
             }
         }
     }
+   
     reverse(temp.begin(), temp.end());
     res.clear();
     if(c==1 &&temp.length()==l)
@@ -83,18 +88,21 @@ string add(string str,string res)
             else
                 res+=temp[i];
         }
+    }
+    else{
+        for(int i=temp.length()-1;i>=0;i--)
+            res+=temp[i];
     }    
     reverse(res.begin(), res.end());   
-   // cout<<res<<endl;  
-   return res;  
+    cout<<res<<endl;    
    // cout<<"carry:"<<c;
+    return res;
 }
 string senderside(string str,int n)
 {
     string res="";
     string ay="";
     int l = str.size();
-    //int c = l/n;
     string str1;
         res += str.substr(0,n);
         //cout<<res<<endl;
@@ -104,8 +112,8 @@ string senderside(string str,int n)
             {
                 str1 += str[j];                    
             }
+            //cout<<str1<<endl;
             ay = add(str1,res);
-          // cout<<str1<<endl;
             str1.clear();
         }
     return ay;
@@ -125,13 +133,15 @@ string onescom(string str)
 int main()
 {
     string str="";
-    string send_data="";
+    string send_data;
     cin>>str;
     int n;
     cout<<"Enter the block size"<<endl;
     cin>>n;
     send_data = str;
     string p = senderside(str,n);
+    cout<<p;
     send_data += onescom(p);
-    cout<<send_data<<endl;
+    
+   cout<<send_data<<endl;
 }
