@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-string subtract(string res,string div)
+string subtract(string& res,string div)
 {
     int l= div.size();
     if(res[0]=='0')
@@ -25,12 +25,32 @@ void receverside(string data,string div)
        if(res[0]=='0')
        {
            res.erase(0,1);
-            res+=data[i];
+            if(i<=data.length()-1)
+                {
+                    res+=data[i];
+                } 
        }
        else
         continue;
     }
     cout<<res;
+    int f=0;
+    for(int i=0;i<res.length();i++)
+    {
+        cout<<res[i];
+        if(res[i]=='0')
+            f=1;
+        else
+            {
+                cout<<i<<endl;
+                cout<<"element id"<<res[i]<<endl;
+                f=0;break;
+            }
+    }
+    if(f==1)
+        cout<<"data correct";
+    else
+        cout<<"data incorrect";
 }
 int main()
 {
