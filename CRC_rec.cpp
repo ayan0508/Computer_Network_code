@@ -37,13 +37,10 @@ void receverside(string data,string div)
     int f=0;
     for(int i=0;i<res.length();i++)
     {
-        cout<<res[i];
         if(res[i]=='0')
             f=1;
         else
             {
-                cout<<i<<endl;
-                cout<<"element id"<<res[i]<<endl;
                 f=0;break;
             }
     }
